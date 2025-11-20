@@ -1,105 +1,100 @@
-🕹️ Hacker Recon Mini-Game
+<!-- Improved compatibility of back to top link -->
+<a id="readme-top"></a>
 
-Một trò chơi mô phỏng kỹ năng hacker cơ bản theo phong cách CTF (Capture The Flag).
-Người chơi sẽ lần lượt vượt qua các level từ quét QR, SSH, phân tích mạng, truy cập server bí ẩn cho đến giải mã tín hiệu.
+<!-- PROJECT SHIELDS -->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![Unlicense License][license-shield]][license-url]
 
-📌 Giới thiệu
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="#">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-Dự án gồm một game chạy trên terminal với 6 level liên tiếp.
-Mỗi level yêu cầu người chơi nhập đúng lệnh hoặc giải mã thông tin để tiếp tục.
+  <h3 align="center">Hacker Recon Mini-Game</h3>
 
-Trò chơi giúp luyện tư duy logic, thao tác mô phỏng hacker và tương tác dòng lệnh.
+  <p align="center">
+    Một mini-game mô phỏng các kỹ năng hacker: QR Recon – SSH – Network Scan – Hidden Service – Grid Decode
+    <br />
+    <a href="#"><strong>Xem tài liệu »</strong></a>
+    <br />
+    <br />
+    <a href="#">Demo</a>
+    ·
+    <a href="https://github.com/your_username/repo_name/issues/new?labels=bug">Báo lỗi</a>
+    ·
+    <a href="https://github.com/your_username/repo_name/issues/new?labels=enhancement">Yêu cầu tính năng</a>
+  </p>
+</div>
 
-🧬 Cấu trúc Game
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#game-levels">Game Levels</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
-Game được chạy từ file game.py và bao gồm các level sau:
+---
 
-🔹 Level 0 — QR Recon
+## About The Project
 
-Hiển thị mã QR ASCII.
+![Product Screenshot][product-screenshot]
 
-Người chơi nhập lệnh scan_qr.
+**Hacker Recon Mini-Game** là một trò chơi dạng CTF chạy trên terminal, mô phỏng quy trình xâm nhập – phân tích – giải mã giống một hacker thực thụ.
 
-Trích xuất từ QR:
+Người chơi sẽ vượt qua 6 level:
 
-username = admin
+- Quét mã QR để lấy thông tin ẩn  
+- SSH vào “server giả lập”  
+- Phát hiện IP lạ trong quá trình ping  
+- Truy cập hidden server và nhập KEY  
+- Giải mã tín hiệu ma trận  
+- Và cuối cùng… một cú lừa hacker 😄  
 
-ip = 10.0.0.55
+Trò chơi được viết hoàn toàn bằng Python và chạy trên terminal.
 
-🔹 Level 1 — SSH Giả Lập
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Người chơi dùng thông tin thu được từ QR.
+---
 
-Lệnh đúng:
+### Built With
 
-ssh admin@10.0.0.55
+* Python 3.x  
+* Module tự viết: `qr_system` (generate + decode QR ASCII)  
 
-🔹 Level 2 — Mạng Xuất Hiện IP Lạ
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Trò chơi mô phỏng lệnh ping.
+---
 
-Một IP bất thường xuất hiện:
+## Getting Started
 
-10.0.0.7
+### Prerequisites
 
-Đây là IP cần điều tra ở level tiếp theo.
+Cài Python 3.8 trở lên:
 
-🔹 Level 3 — Hidden Server Access
-
-Người chơi dùng lệnh:
-
-connect 10.0.0.7
-
-
-Server trả về KEY:
-
-N2QSW-65132875
-
-
-Người chơi nhập đúng KEY để vượt level.
-
-🔹 Level 4 — Hacker Grid Decode
-
-Nhập lại KEY.
-
-Một bảng tín hiệu mã hóa dạng lưới được hiển thị.
-
-Người chơi phải tìm ra tần số = 21.
-
-🔹 Level 5 — Cú Lừa Hacker
-
-Trò chơi kết thúc bằng một đoạn "nghiệp vụ kiểm tra kỹ năng hacker" và…
-❌ Mission Failed
-(vì đây chỉ là màn chơi thử, kết thúc giả lập)
-
-▶️ Cách chạy game
-Yêu cầu
-
-Python 3.8+
-
-Module tự viết:
-
-qr_system.py (chứa hàm create_qr() và read_qr())
-
-Chạy game
-python game.py
-
-📁 Cấu trúc thư mục
-project/
-│── game.py
-│── qr_system.py
-│── README.md
-
-🧠 Các kỹ năng mô phỏng trong game
-Level	Kỹ năng mô phỏng
-0	Recon, đọc dữ liệu từ QR
-1	SSH command & remote login
-2	Network traffic analysis
-3	Hidden service probing
-4	Basic signal decoding
-5	Social-engineering “twist”
-⭐ Ghi chú
-
-Toàn bộ game chạy trong terminal, không yêu cầu Internet.
-
-Đây là trò chơi mô phỏng — không thực sự thực hiện SSH hay ping thật.
+```sh
+python --version
